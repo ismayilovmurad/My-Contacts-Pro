@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainContainer"
+    tools:context=".feed.AddActivity"
+    android:background="@color/colorAccent">
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorColor="@color/colorTwo"
+        app:indicatorName="BallRotateIndicator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/backIV"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/back"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/app_name"/>
+
+        <Button
+            android:id="@+id/saveBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:text="@string/save"
+            android:background="@drawable/button_background"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintTop_toBottomOf="@id/container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorTwo"
+                    android:layout_gravity="center"/>
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/fullNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/required"
+                    android:inputType="text"
+                    app:met_baseColor="@color/colorOne"
+                    app:met_errorColor="@color/colorError"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="name"
+                    app:met_primaryColor="@color/colorOne"
+                    app:met_singleLineEllipsis="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_1"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorTwo"
+                    android:layout_gravity="center"/>
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/phone_1ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/required"
+                    android:inputType="phone"
+                    android:imeOptions="actionDone"
+                    app:met_baseColor="@color/colorOne"
+                    app:met_errorColor="@color/colorError"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="phone"
+                    app:met_primaryColor="@color/colorOne"
+                    app:met_singleLineEllipsis="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:weightSum="2">
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/categorySP"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:backgroundTint="@color/colorOne"/>
+
+                <CheckBox
+                    android:id="@+id/hideCB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hide"
+                    android:layout_marginStart="10dp"
+                    app:buttonTint="@color/colorOne"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/expandIV"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/ic_expand"
+                android:contentDescription="@string/app_name"/>
+
+            <LinearLayout
+                android:id="@+id/expandLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone_2"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorTwo"
+                        android:layout_gravity="center"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/phone_2ET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/optional"
+                        android:inputType="phone"
+                        android:imeOptions="actionNext"
+                        app:met_baseColor="@color/colorOne"
+                        app:met_errorColor="@color/colorError"
+                        app:met_floatingLabel="highlight"
+                        app:met_floatingLabelText="phone 2"
+                        app:met_primaryColor="@color/colorOne"
+                        app:met_singleLineEllipsis="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorTwo"
+                        android:layout_gravity="center"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/emailET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/optional"
+                        android:inputType="textEmailAddress"
+                        android:imeOptions="actionNext"
+                        app:met_baseColor="@color/colorTwo"
+                        app:met_errorColor="@color/colorError"
+                        app:met_floatingLabel="highlight"
+                        app:met_floatingLabelText="email"
+                        app:met_primaryColor="@color/colorTwo"
+                        app:met_singleLineEllipsis="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/instagram"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorTwo"
+                        android:layout_gravity="center"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/instagramET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/optional"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        app:met_baseColor="@color/colorTwo"
+                        app:met_errorColor="@color/colorError"
+                        app:met_floatingLabel="highlight"
+                        app:met_floatingLabelText="instagram"
+                        app:met_primaryColor="@color/colorTwo"
+                        app:met_singleLineEllipsis="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/facebook"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorTwo"
+                        android:layout_gravity="center"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/facebookET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/optional"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        app:met_baseColor="@color/colorTwo"
+                        app:met_errorColor="@color/colorError"
+                        app:met_floatingLabel="highlight"
+                        app:met_floatingLabelText="facebook"
+                        app:met_primaryColor="@color/colorTwo"
+                        app:met_singleLineEllipsis="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/twitter"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorTwo"
+                        android:layout_gravity="center"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/twitterET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/optional"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        app:met_baseColor="@color/colorTwo"
+                        app:met_errorColor="@color/colorError"
+                        app:met_floatingLabel="highlight"
+                        app:met_floatingLabelText="twitter"
+                        app:met_primaryColor="@color/colorTwo"
+                        app:met_singleLineEllipsis="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/linkedin"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorTwo"
+                        android:layout_gravity="center"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/linkedinET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/optional"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        app:met_baseColor="@color/colorTwo"
+                        app:met_errorColor="@color/colorError"
+                        app:met_floatingLabel="highlight"
+                        app:met_floatingLabelText="linkedin"
+                        app:met_primaryColor="@color/colorTwo"
+                        app:met_singleLineEllipsis="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/snapchat"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorTwo"
+                        android:layout_gravity="center"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/snapchatET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/optional"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        app:met_baseColor="@color/colorTwo"
+                        app:met_errorColor="@color/colorError"
+                        app:met_floatingLabel="highlight"
+                        app:met_floatingLabelText="snapchat"
+                        app:met_primaryColor="@color/colorTwo"
+                        app:met_singleLineEllipsis="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/skype"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorTwo"
+                        android:layout_gravity="center"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/skypeET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/optional"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        app:met_baseColor="@color/colorTwo"
+                        app:met_errorColor="@color/colorError"
+                        app:met_floatingLabel="highlight"
+                        app:met_floatingLabelText="skype"
+                        app:met_primaryColor="@color/colorTwo"
+                        app:met_singleLineEllipsis="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/website"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorTwo"
+                        android:layout_gravity="center"/>
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/websiteET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/optional"
+                        android:inputType="text"
+                        android:imeOptions="actionDone"
+                        app:met_baseColor="@color/colorTwo"
+                        app:met_errorColor="@color/colorError"
+                        app:met_floatingLabel="highlight"
+                        app:met_floatingLabelText="website"
+                        app:met_primaryColor="@color/colorTwo"
+                        app:met_singleLineEllipsis="true" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/new_contact"
+        android:title="@string/new_contact"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_add"/>
+
+    <item
+        android:id="@+id/hidden"
+        android:title="@string/hidden"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/refresh"
+        android:title="@string/refresh"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/share"
+        android:title="@string/share"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_share"/>
+
+    <item
+        android:id="@+id/rate"
+        android:title="@string/rate"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/log_out"
+        android:title="@string/log_out"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_log_out"/>
+
+</menu>
